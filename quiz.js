@@ -67,6 +67,7 @@ const quizData = [
   ];
   
   const startQuizButton = document.getElementById('startQuiz');
+  const startTextContainer = document.getElementById('startText');
   const quizContainer = document.getElementById('quiz');
   const resultContainer = document.getElementById('result');
   const submitButton = document.getElementById('submit');
@@ -85,6 +86,7 @@ const quizData = [
   }
 
   function startQuiz() {
+    startTextContainer.innerHTML='';
 	displayQuestion();
   }
   
@@ -198,3 +200,4 @@ const quizData = [
   showAnswerButton.addEventListener('click', showAnswer);
   
   submitButton.style.display = 'none';
+  startTextContainer.innerHTML = '<p>You can start the quiz now</p>';
