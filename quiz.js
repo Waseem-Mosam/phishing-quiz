@@ -66,6 +66,7 @@ const quizData = [
     },
   ];
   
+  const startQuizButton = document.getElementById('startQuiz');
   const quizContainer = document.getElementById('quiz');
   const resultContainer = document.getElementById('result');
   const submitButton = document.getElementById('submit');
@@ -82,9 +83,16 @@ const quizData = [
       [array[i], array[j]] = [array[j], array[i]];
     }
   }
+
+  function startQuiz() {
+	displayQuestion();
+  }
   
   function displayQuestion() {
     const questionData = quizData[currentQuestion];
+
+    submitButton.style.display ='inline-block';
+    startQuizButton.style.display = 'none';
   
     const questionElement = document.createElement('div');
     questionElement.className = 'question';
@@ -184,8 +192,9 @@ const quizData = [
     `;
   }
   
+  startQuizButton.addEventListener('click', startQuiz)
   submitButton.addEventListener('click', checkAnswer);
   retryButton.addEventListener('click', retryQuiz);
   showAnswerButton.addEventListener('click', showAnswer);
   
-  displayQuestion();
+  submitButton.style.display = 'none';
