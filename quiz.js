@@ -75,7 +75,7 @@ const questions = [
       answer: 'False',
     },
     {
-      question: 'Is this email legitimate? <img src="images/email1.png" alt="Email Picture" class="responsive-image">',
+      question: '<img src="images/email1.png" alt="Email Picture" class="responsive-image"> Is this email legitimate?',
       options: [
         'True',
         'False',
@@ -83,7 +83,7 @@ const questions = [
       answer: 'True',
     },
     {
-      question: 'Is this email legitimate? <img src="images/email2.png" alt="Email Picture" class="responsive-image">',
+      question: '<img src="images/email2.png" alt="Email Picture" class="responsive-image">Is this email legitimate?',
       options: [
         'True',
         'False', 
