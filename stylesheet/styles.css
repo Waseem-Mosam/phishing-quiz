@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  width: 450px;
+  width: 70%;
   padding: 20px;
   margin-top: 80px;
   background-color: #fff;
@@ -59,4 +59,9 @@ h1 {
 
 .hide{
   display: none;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
 }

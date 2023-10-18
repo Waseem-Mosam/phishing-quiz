@@ -1,23 +1,43 @@
+//Setting questions and answers
 const quizData = [
     {
       question: 'What is digital privacy?',
-      options: ['Locking your computer with a password', 'Protecting your personal information online', 'Using encryption for all online communications', 'None of the above'],
-      answer: 'Paris',
+      options: [
+        'Locking your computer with a password',
+        'Protecting your personal information online',
+        'Using encryption for all online communications',
+        'None of the above'
+      ],
+      answer: 'Protecting your personal information online',
     },
     {
       question: 'Which of the following is NOT a common threat to digital privacy?',
-      options: ['Phishing', 'Social engineering', 'Strong password', 'Malware'],
-      answer: 'Jupiter',
+      options: [
+        'Phishing',
+        'Social engineering',
+        'Strong passwords',
+        'Malware'
+      ],
+      answer: 'Strong passwords',
     },
     {
       question: 'What does the term "Two-Factor Authentication" (2FA) refer to?',
-      options: ['A method to securely store your files', 'A security measure requiring two forms of verification to access an account', 'A type of digital currency', 'A social media platform'],
-      answer: 'France',
+      options: [
+        'A method to securely store your files',
+        'A security measure requiring two forms of verification to access an account',
+        'A type of digital currency',
+        'A social media platform'
+      ],
+      answer: 'A security measure requiring two forms of verification to access an account',
     },
     {
       question: 'Which of the following is a good practice for protecting your online privacy?',
-      options: ['Sharing your passwords with friends', 'Using public Wi-Fi networks for online banking', 'Regularly updating your passwords', 'Clicking on suspicious email links'],
-      answer: 'Mount Everest',
+      options: [
+        'Sharing your passwords with friends',
+        'Using public Wi-Fi networks for online banking',
+        'Regularly updating your passwords',
+        'Clicking on suspicious email links'],
+      answer: 'Regularly updating your passwords',
     },
     {
       question: 'What is a VPN (Virtual Private Network) used for?',
@@ -27,12 +47,17 @@ const quizData = [
         'Installing software updates',
         'None of the above',
       ],
-      answer: 'Pacific Ocean',
+      answer: 'Browsing the internet anonymously',
     },
     {
       question: 'What does "HTTPS" stand for in website URLs, and why is it important for digital privacy?',
-      options: ['Hypertext Transfer Protocol Secure; it encrypts data exchanged between your browser and the website.', 'Hypertext Transfer Protocol System; it verifies website authenticity.', 'High-Efficiency Transport Protocol System; it accelerates internet speed.', 'Hypertext Transfer Privacy Service; it hides your online activity.'],
-      answer: 'Au',
+      options: [
+        'Hypertext Transfer Protocol Secure; it encrypts data exchanged between your browser and the website',
+        'Hypertext Transfer Protocol System; it verifies website authenticity',
+        'High-Efficiency Transport Protocol System; it accelerates internet speed',
+        'Hypertext Transfer Privacy Service; it hides your online activity'
+      ],
+      answer: 'Hypertext Transfer Protocol Secure; it encrypts data exchanged between your browser and the website',
     },
     {
       question: 'What does "phishing" refer to in the context of digital privacy?',
@@ -42,7 +67,7 @@ const quizData = [
         'A secure method of data sharing on the internet',
         'A popular social media platform',
       ],
-      answer: 'Leonardo da Vinci',
+      answer: 'An attempt to trick individuals into revealing personal information by posing as a trustworthy entity',
     },
     {
       question: 'It\'s safe to use the same password for multiple online accounts to make them easier to remember.',
@@ -50,22 +75,24 @@ const quizData = [
       answer: 'False',
     },
     {
-      question: 'What is the largest species of shark?',
+      question: 'Is this email legitimate? <img src="images/email1.png" alt="Email Picture" class="responsive-image">',
       options: [
-        'Great White Shark',
-        'Whale Shark',
-        'Tiger Shark',
-        'Hammerhead Shark',
+        'True',
+        'False',
       ],
-      answer: 'Whale Shark',
+      answer: 'True',
     },
     {
-      question: 'Which animal is known as the King of the Jungle?',
-      options: ['Lion', 'Tiger', 'Elephant', 'Giraffe'],
-      answer: 'Lion',
+      question: 'Is this email legitimate? <img src="images/email2.png" alt="Email Picture" class="responsive-image">',
+      options: [
+        'True',
+        'False', 
+      ],
+      answer: 'False',
     },
   ];
   
+  //Setting html elements to variables
   const startQuizButton = document.getElementById('startQuiz');
   const startTextContainer = document.getElementById('startText');
   const quizContainer = document.getElementById('quiz');
@@ -77,7 +104,8 @@ const quizData = [
   let currentQuestion = 0;
   let score = 0;
   let incorrectAnswers = [];
-  
+
+  //
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -85,11 +113,13 @@ const quizData = [
     }
   }
 
+  //Function to start quiz
   function startQuiz() {
     startTextContainer.innerHTML='';
 	displayQuestion();
   }
   
+  //Function that displays questions
   function displayQuestion() {
     const questionData = quizData[currentQuestion];
 
@@ -126,7 +156,8 @@ const quizData = [
     quizContainer.appendChild(questionElement);
     quizContainer.appendChild(optionsElement);
   }
-  
+
+  //Function that checks if selected answer is correct
   function checkAnswer() {
     const selectedOption = document.querySelector('input[name="quiz"]:checked');
     if (selectedOption) {
@@ -150,6 +181,7 @@ const quizData = [
     }
   }
   
+  //Function that displays results of the quiz
   function displayResult() {
     quizContainer.style.display = 'none';
     submitButton.style.display = 'none';
@@ -158,6 +190,7 @@ const quizData = [
     resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}!`;
   }
   
+  //Function that allows user to re-attempt quiz
   function retryQuiz() {
     currentQuestion = 0;
     score = 0;
@@ -170,6 +203,7 @@ const quizData = [
     displayQuestion();
   }
   
+  //Function that shows correct answer to incorrectly answered questions
   function showAnswer() {
     quizContainer.style.display = 'none';
     submitButton.style.display = 'none';
@@ -194,6 +228,7 @@ const quizData = [
     `;
   }
   
+  //Setting event listeners for buttons
   startQuizButton.addEventListener('click', startQuiz)
   submitButton.addEventListener('click', checkAnswer);
   retryButton.addEventListener('click', retryQuiz);
