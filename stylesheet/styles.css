@@ -8,14 +8,14 @@ body {
 }
 
 /* For mobile phones: */
-[class*="col-"] {
+/* [class*="col-"] {
   width: 100%;
   padding: 20px;
   margin-top: 80px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-}
+} */
 
 h1 {
   text-align: center;
@@ -68,14 +68,11 @@ h1 {
   height: auto;
 }
 
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .container {
-    width: 60%;
-    padding: 20px;
-    margin-top: 80px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-  }
+.containerQuiz {
+  
+  padding: 20px;
+  margin-top: 80px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
 }
