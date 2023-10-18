@@ -1,5 +1,5 @@
 //Setting questions and answers
-const quizData = [
+const questions = [
     {
       question: 'What is digital privacy?',
       options: [
@@ -105,7 +105,7 @@ const quizData = [
   let score = 0;
   let incorrectAnswers = [];
 
-  //
+  //Shuffles question options
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -121,7 +121,7 @@ const quizData = [
   
   //Function that displays questions
   function displayQuestion() {
-    const questionData = quizData[currentQuestion];
+    const questionData = questions[currentQuestion];
 
     submitButton.style.display ='inline-block';
     startQuizButton.style.display = 'none';
@@ -162,18 +162,18 @@ const quizData = [
     const selectedOption = document.querySelector('input[name="quiz"]:checked');
     if (selectedOption) {
       const answer = selectedOption.value;
-      if (answer === quizData[currentQuestion].answer) {
+      if (answer === questions[currentQuestion].answer) {
         score++;
       } else {
         incorrectAnswers.push({
-          question: quizData[currentQuestion].question,
+          question: questions[currentQuestion].question,
           incorrectAnswer: answer,
-          correctAnswer: quizData[currentQuestion].answer,
+          correctAnswer: questions[currentQuestion].answer,
         });
       }
       currentQuestion++;
       selectedOption.checked = false;
-      if (currentQuestion < quizData.length) {
+      if (currentQuestion < questions.length) {
         displayQuestion();
       } else {
         displayResult();
@@ -187,7 +187,7 @@ const quizData = [
     submitButton.style.display = 'none';
     retryButton.style.display = 'inline-block';
     showAnswerButton.style.display = 'inline-block';
-    resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}!`;
+    resultContainer.innerHTML = `You scored ${score} out of ${questions.length}!`;
   }
   
   //Function that allows user to re-attempt quiz
@@ -222,7 +222,7 @@ const quizData = [
     }
   
     resultContainer.innerHTML = `
-      <p>You scored ${score} out of ${quizData.length}!</p>
+      <p>You scored ${score} out of ${questions.length}!</p>
       <p>Incorrect Answers:</p>
       ${incorrectAnswersHtml}
     `;
