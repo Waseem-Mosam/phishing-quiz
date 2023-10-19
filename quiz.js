@@ -117,7 +117,7 @@ const questions = [
   //Function to start quiz
   function startQuiz() {
     startTextContainer.innerHTML='';
-	displayQuestion();
+	  displayQuestion();
   }
   
   //Function that displays questions
