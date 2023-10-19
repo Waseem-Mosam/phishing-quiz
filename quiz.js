@@ -100,6 +100,7 @@ const questions = [
   const submitButton = document.getElementById('submit');
   const retryButton = document.getElementById('retry');
   const showAnswerButton = document.getElementById('showAnswer');
+  const learnMoreButton = document.getElementById('learnMore');
   
   let currentQuestion = 0;
   let score = 0;
@@ -187,6 +188,7 @@ const questions = [
     submitButton.style.display = 'none';
     retryButton.style.display = 'inline-block';
     showAnswerButton.style.display = 'inline-block';
+    learnMoreButton.style.display = 'inline-block';
     resultContainer.innerHTML = `You scored ${score} out of ${questions.length}!`;
   }
   
@@ -226,8 +228,12 @@ const questions = [
       <p>Incorrect Answers:</p>
       ${incorrectAnswersHtml}
 
-      <a href="./info.html">Click here to learn more.</a>
+      <a href="info.html">Click here to learn more.</a>
     `;
+  }
+
+  function learnMoreInfo(){
+    window.location.href="info.html";
   }
   
   //Setting event listeners for buttons
@@ -235,6 +241,7 @@ const questions = [
   submitButton.addEventListener('click', checkAnswer);
   retryButton.addEventListener('click', retryQuiz);
   showAnswerButton.addEventListener('click', showAnswer);
+  learnMoreButton.addEventListener('click', learnMoreInfo);
   
   submitButton.style.display = 'none';
   startTextContainer.innerHTML = '<p>You can start the quiz now</p>';
