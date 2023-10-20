@@ -227,8 +227,6 @@ const questions = [
       <p>You scored ${score} out of ${questions.length}!</p>
       <p>Incorrect Answers:</p>
       ${incorrectAnswersHtml}
-
-      <a href="info.html">Click here to learn more.</a>
     `;
   }
 
